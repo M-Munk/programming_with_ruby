@@ -2,7 +2,6 @@
 # those words
 # should return a different array for each set of words with the same letters
 # chars method returns an array of characters from a string
-# map iterates over an array applying a block to each element returning a new array with the results
 # sort orders an array
 
 words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
