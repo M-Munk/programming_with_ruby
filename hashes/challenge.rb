@@ -10,38 +10,22 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
   'flow', 'neon']
 
 # arrange words into sorted array for comparison
-def arrange_word(word)
-  word.chars.sort
-end
 
-# temporary array to allow for mutating
-temp_words = words
-
-#start with the first word
-#compare it to each other word
-#if words match, create a new array and push first + each match in
-#delete items that match from original array 
-#print array of matches when down if array isn't empty
-#delete the word
-#continue finding matches with new first word until temp_words is empty
-
-until temp_words.empty?
-  arr = []
-  first_word = temp_words.first
-  temp_words.delete(first_word)
-  temp_words.each do |word|
-    if arrange_word(first_word) == arrange_word(word)
-      arr.push(word)
-      temp_words.delete(word)
-    end
-  end
-  if !arr.empty?
-    arr.unshift(first_word)
-  end
-  if !arr.empty?
-    p arr
+# iterate through words
+# arrange word into a key based on alphabetical sorting of the word
+# if the key does not exist, add the key and add word to value array
+# if the key already exists, just add the value 
+# print values
+anagrams = {}
+words.each do |word|
+  key = word.chars.sort.join
+  unless anagrams.has_key?(key)
+    anagrams[key] = [word]
+  else anagrams[key].push(word)
   end
 end
+anagrams.each { |key, value| p value}
+
 
 
 
