@@ -84,3 +84,41 @@ arr = ['snow', 'winter', 'ice', 'slippery', 'salted roads', 'white trees']
 
 arr.delete_if { |str| str.start_with?("s", "w") }
 p arr
+
+a = ['white snow', 'winter wonderland', 'melting ice',
+  'slippery sidewalk', 'salted roads', 'white trees']
+
+ a.map! {|str| str.split(' ')}
+ a.flatten!
+ p a 
+
+ #15 "These hashes are the same"
+
+ hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
+hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+
+if hash1 == hash2
+  puts "These hashes are the same!"
+else
+  puts "These hashes are not the same!"
+end
+
+contact_data = ["joe@email.com", "123 Main st.", "555-123-4567"]
+contacts = {"Joe Smith" => {}}
+# contact_data_hash = {}
+# contact_data.each do |item| 
+#   contact_data_hash[:email] = contact_data.shift
+#   contact_data_hash[:address] = contact_data.shift
+#   contact_data_hash[:phone] = contact_data.shift
+# end
+# p contact_data_hash
+# contacts["Joe Smith"] = contact_data_hash
+# p contacts
+# refactor =>
+fields = [:email, :address, :phone]
+contacts.each do |name, hash|
+  fields.each do |field|
+    hash[field] = contact_data.shift
+  end
+end
+p contacts
